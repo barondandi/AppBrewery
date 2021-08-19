@@ -10,6 +10,11 @@ b_old = b
 a = b_old
 b = a_old
 
+''' SOLUTION
+c = a
+a = b
+b = c
+'''
 #Write your code above this line 👆
 ####################################
 
