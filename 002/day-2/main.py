@@ -58,3 +58,23 @@ print(str(123) + str(456))
 # + -
 
 print(3 * (3 + 3) / 3 - 3)
+
+
+#Rounding Numbers
+round(4.6666666666)
+
+#Floor division
+9 // 4
+
+#Shorthand Operators
+# a += 2  short for a = a + 2
+# -=
+# *=
+# /=
+
+
+#f-Strings
+score = 0
+height = 1.8
+isWinning = True
+print(f"your score is {score}, your height is {height}, you are winning is {isWinning}")
