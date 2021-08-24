@@ -31,7 +31,7 @@ count2 += name12.count("e")
 score = int(str(count1) + str(count2))
 
 # Score interpretation
-if score <= 10 or score >=90:
+if score < 10 or score > 90:
     print(f"Your score is {score}, you go together like coke and mentos.")
 elif score >=40 and score <=50:
     print(f"Your score is {score}, you are alright together.")
