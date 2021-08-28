@@ -29,3 +29,25 @@ states_of_america[1] = "Pencilvania"
 print(states_of_america)
 states_of_america.append("Angelaland")
 print(states_of_america)
+
+print(len(states_of_america))
+
+num_of_states = len(states_of_america)
+# This gives an error:
+# print(states_of_america[num_of_states])
+# This is the right way to do do it as the first index of the list is 0
+print(states_of_america[num_of_states - 1])
+
+# dirty_dozen = ["Strawberries", "Spinach", "Kale", "Nectarines", "Apples", "Grapes", "Peaches", "Cherries", "Pears", "Tomatoes", "Celery", "Potatoes"]
+
+fruits = ["Strawberries", "Nectarines", "Apples", "Grapes", "Peaches", "Cherries", "Pears"]
+vegetables = ["Spinach", "Kale", "Tomatoes", "Celery", "Potatoes"]
+
+dirty_dozen = [fruits, vegetables]
+print(dirty_dozen)
+
+print(dirty_dozen[0])
+print(dirty_dozen[1])
+
+print(dirty_dozen[1][2])
+print(dirty_dozen[1][3])
