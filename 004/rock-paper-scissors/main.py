@@ -27,7 +27,15 @@ scissors = '''
 ---.__(___)
 '''
 
-player_selection = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
+# Added debugging using a loop (not yet covered)
+input_error = True
+while input_error == True:
+    player_selection = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
+    if player_selection >= 0 and player_selection <= 2:
+        input_error = False
+    else:
+        print("ERROR with the selection. Please type '0', '1' or '2'.")
+
 # Using the previous sequence to create a list
 options = [rock, paper, scissors]
 # print(options)
