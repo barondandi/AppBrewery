@@ -9,12 +9,14 @@ for n in range(0, len(student_heights)):
 # Important You should not use the sum() or len() functions in your answer. You should try to replicate their functionality using what you have learnt about for loops.
 
 # Calculate number of students
+# number_of_students = len(student_heights)
 number_of_students = 0
 for index in student_heights:
   number_of_students += 1
 # print(number_of_students)
 
 # Calculate sum of heights
+# sum_of_heights = sum(student_heights)
 sum_of_heights = 0
 for height in student_heights:
   sum_of_heights += height
