@@ -6,7 +6,7 @@ print(student_scores)
 # 🚨 Don't change the code above 👆
 
 #Write your code below this row 👇
-
+# high_score = max(student_scores)
 high_score = 0
 for score in student_scores:
   if score > high_score:
