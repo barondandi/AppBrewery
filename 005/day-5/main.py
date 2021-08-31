@@ -12,3 +12,10 @@ for number in range(1, 5):
 
 for number in range(1, 11, 3):
   print(number)
+
+
+# Gauss way of adding 1-100
+total = 0
+for number in range(1, 101):
+  total += number
+print(total)
