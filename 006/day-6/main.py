@@ -108,3 +108,30 @@ while not at_goal():
     else:
         jump()
 '''
+
+''' Hurdle 4
+def turn_right():
+    turn_left()
+    turn_left()
+    turn_left()
+
+def jump():
+    turn_left()
+    height = 0
+    while not right_is_clear():
+        move()
+        height += 1
+    turn_right()
+    move()
+    turn_right()
+    while height > 0:
+        move()
+        height -= 1
+    turn_left()
+
+while not at_goal():
+    if front_is_clear():
+        move()
+    else:
+        jump()
+'''
