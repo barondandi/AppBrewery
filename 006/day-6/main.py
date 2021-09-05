@@ -156,3 +156,28 @@ while not at_goal():
     else:
         turn_left()
 '''
+
+''' Maze whith infinite loop detection
+def turn_right():
+    turn_left()
+    turn_left()
+    turn_left()
+
+loop_counter = 0
+
+while not at_goal():
+    if right_is_clear():
+        if loop_counter < 4:
+            turn_right()
+            move()
+            loop_counter += 1
+        else:
+            turn_right()
+            loop_counter = 0
+    elif front_is_clear():
+        move()
+        loop_counter = 0
+    else:
+        turn_left()
+        loop_counter = 0
+'''
