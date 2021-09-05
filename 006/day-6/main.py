@@ -78,3 +78,7 @@ while at_goal() == False:
 # I could also have used 
 # while not at_goal(): 
 '''
+
+fruits = ["Apple", "Pear", "Orange"]
+for fruit in fruits:
+    print(fruit)
