@@ -79,6 +79,32 @@ while at_goal() == False:
 # while not at_goal(): 
 '''
 
+# When to use for or while loops
 fruits = ["Apple", "Pear", "Orange"]
 for fruit in fruits:
     print(fruit)
+
+for n in range(1, 6):
+    print(n)
+
+''' Hurdle 3
+def turn_right():
+    turn_left()
+    turn_left()
+    turn_left()
+
+def jump():
+    turn_left()
+    move()
+    turn_right()
+    move()
+    turn_right()
+    move()
+    turn_left()
+
+while not at_goal():
+    if front_is_clear():
+        move()
+    else:
+        jump()
+'''
