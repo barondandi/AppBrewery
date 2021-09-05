@@ -45,5 +45,12 @@ def jump():
     turn_left()
 
 for jumps in range(1, 7):
+# for jumps in range(6):
     jump()
+
+# Other way is with the while loop
+number_of_hurdles = 6
+while number_of_hurdles > 0:
+    jump()
+    number_of_hurdles -= 1
 '''
