@@ -180,4 +180,9 @@ while not at_goal():
     else:
         turn_left()
         loop_counter = 0
+
+# Other solution is adding before the while loop:
+# while front_is_clear():
+#   move()
+# turn_left()
 '''
