@@ -15,7 +15,10 @@ guess = guess_unformatted.lower()
 # print(guess)
 
 #3 - Check if the letter the user guessed (guess) is one of the letters in the chosen_word.
-for letter in range(0, (len(chosen_word) - 1)):
+# ERROR: range does not include the last number so there is no need to substract it
+# for letter in range(0, (len(chosen_word) - 1)):
+# Should be
+for letter in range(0, len(chosen_word)):
 # There is a more simple way to write this:
 # for letter in chosen_word
     if chosen_word[letter].lower() == guess:
