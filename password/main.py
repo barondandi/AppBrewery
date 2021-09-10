@@ -8,7 +8,7 @@ from password_vars import number_of_words
 print(logo)
 game_is_finished = False
 word_list_len = len(word_list) - 1
-print(word_list_len)
+print(f"Dictionary has {word_list_len} words.")
 # print(word_list[word_list_len])
 
 # List to check which words have already been used
@@ -20,7 +20,7 @@ used_words_counter = len(used_words)
 # print(len(used_words))
 # print(type(used_words[word_list_len - 1]))
 
-# Loop to keep on generation words unless told otherwise
+# Loop to keep on generating words unless told otherwise
 while not game_is_finished:
     # Generate random unused words
     word_counter = number_of_words
