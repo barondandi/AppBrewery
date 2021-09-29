@@ -34,3 +34,13 @@ print(programming_dictionary)
 for entry in programming_dictionary:
     print(f"The key is {entry}; and the value is \"{programming_dictionary[entry]}\".")
 
+#Nesting
+capitals = {
+    "France" = "Paris",
+    "Germany" = "Berlin",
+}
+
+#Nesting a list in a dictionary
+travel_log = {
+    "France" = ["Paris", "Lille", "Dijon"],
+}
