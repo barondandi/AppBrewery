@@ -15,14 +15,26 @@ continue_bidding = True
 #Define function to add bids
 def add_bid():
     bid_name = str(input("What is your name?: "))
-    bid_amount = int(input("What's your bid?: $"))
-    bids[bid_name]: bid_amount
-    print(bids)
+    bid_amount = int(input("What's your bid?: $ "))
+    bids[bid_name] = bid_amount
     bid_continue = (str(input("Are there any other bidders? Type 'yes' or 'no'.\n"))).lower()
     if bid_continue == "no":
-        continue_bidding = False
-    clear()
+        return False
+    else:
+        return True
+
+#Define a function to check the winner and print it
+def check_winner(bid_dictionary):
+    bid = 0
+    for name in bid_dictionary:
+        if bid_dictionary[name] > bid:
+            winner = name
+            bid = bid_dictionary[name]
+    print(f"The winner is {winner} with a bid of ${bid}.")
 
 #Main code
 while continue_bidding:
-    add_bid()
+    continue_bidding = add_bid()
+    clear()
+#print(bids)
+check_winner(bid_dictionary = bids)
