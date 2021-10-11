@@ -6,6 +6,9 @@ print(my_function())
 
 #Functions with Outputs
 def format_name(f_name, l_name):
+    """Take a first and last name and format it
+  to return the title case version of the name."""
+    # Docstrings are used to give the description of a function. They need to be the first line after the function definition. They need to be included between three commas. And they may spin across several lines.
     if f_name == "" or l_name == "":
         return "You didn't provide valid inputs."
     formatted_f_name = f_name.title()
