@@ -1,4 +1,4 @@
-form art import logo
+from art import logo
 
 print(logo)
 
