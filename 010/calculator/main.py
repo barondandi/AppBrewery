@@ -1,7 +1,5 @@
 from art import logo
 
-print(logo)
-
 # Calculator
 
 #Add
@@ -40,23 +38,30 @@ def select_operator():
         else:
             print("Invalid operator.")
 
-num1 = int(input("What's the first number?: "))
-operation_choice = select_operator()
-num2 = int(input("What's the second number?: "))
-first_answer = operations[operation_choice](num1, num2)
+def calculator():
+    print(logo)
 
-print(f"{num1} {operation_choice} {num2} = {first_answer}")
+    num1 = float(input("What's the first number?: "))
+    operation_choice = select_operator()
+    num2 = float(input("What's the second number?: "))
+    first_answer = operations[operation_choice](num1, num2)
 
-#Do another operation with the previous result
-continue_calculations = True
-while continue_calculations:
-    continue_selection = (input(f"Type 'y' to continue calculating with {first_answer} or type 'n' to exit\n")).lower()
-    if continue_selection == "y":
-        print("Pick another operation:")
-        operation_choice = select_operator()
-        num3 = int(input("What's the next number?: "))
-        second_answer = operations[operation_choice](first_answer, num3)
-        print(f"{first_answer} {operation_choice} {num3} = {second_answer}")
-        first_answer = second_answer
-    else:
-        continue_calculations = False
+    print(f"{num1} {operation_choice} {num2} = {first_answer}")
+
+    #Do another operation with the previous result
+    continue_calculations = True
+    while continue_calculations:
+        continue_selection = (input(f"Type 'y' to continue calculating with {first_answer} or type 'n' to start a new calculation: ")).lower()
+        if continue_selection == "y":
+            print("Pick another operation:")
+            operation_choice = select_operator()
+            num3 = float(input("What's the next number?: "))
+            second_answer = operations[operation_choice](first_answer, num3)
+            print(f"{first_answer} {operation_choice} {num3} = {second_answer}")
+            first_answer = second_answer
+        else:
+            continue_calculations = False
+            calculator()
+
+#Call the main function
+calculator()
