@@ -94,6 +94,7 @@ elif user_score == 0:
     continue_current_game = False
 
 #Hint 10: If the game has not ended, ask the user if they want to draw another card. If yes, then use the deal_card() function to add another card to the user_cards List. If no, then the game has ended.
+#Hint 11: The score will need to be rechecked with every new card drawn and the checks in Hint 9 need to be repeated until the game ends.
 while continue_current_game and continue_dealing:
     another_card = input("Type 'y' to get another card, type 'n' to pass: ")
     if another_card == "y":
@@ -106,8 +107,6 @@ while continue_current_game and continue_dealing:
             continue_current_game = False
     else:
         continue_dealing = False
-
-#Hint 11: The score will need to be rechecked with every new card drawn and the checks in Hint 9 need to be repeated until the game ends.
 
 #Hint 12: Once the user is done, it's time to let the computer play. The computer should keep drawing cards as long as it has a score less than 17.
 
