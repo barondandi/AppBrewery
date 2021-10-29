@@ -39,6 +39,8 @@
 import random
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 continue_playing = True
+continue_current_game = True
+continue_dealing = True
 
 def deal_card():
     return random.choice(cards)
@@ -63,16 +65,16 @@ for i in range(2):
 #Hint 7: Inside calculate_score() check for a blackjack (a hand with only 2 cards: ace + 10) and return 0 instead of the actual score. 0 will represent a blackjack in our game.
 #Hint 8: Inside calculate_score() check for an 11 (ace). If the score is already over 21, remove the 11 and replace it with a 1. You might need to look up append() and remove().
 
-def calculate_score(cards):
-    if len(cards) == 2 and sum(cards) == 21:
+def calculate_score(input_cards):
+    if len(input_cards) == 2 and sum(input_cards) == 21:
         return 0
-    elif sum(cards) > 21:
-        for i in cards:
-            if cards[i] == 11:
-                cards[i] = 1
-        return sum(cards)
+    elif sum(input_cards) > 21:
+        for i in range(len(input_cards)):
+            if input_cards[i] == 11:
+                input_cards[i] = 1
+        return sum(input_cards)
     else:
-        return sum(cards)
+        return sum(input_cards)
 
 #Hint 9: Call calculate_score(). If the computer or the user has a blackjack (0) or if the user's score is over 21, then the game ends.
 user_score = calculate_score(user_cards)
@@ -83,16 +85,16 @@ print(f"Computer's first card: {computer_cards[0]}")
 
 if computer_score == 0:
     print("Computer blackjack. You lose 😤")
-    continue_playing = False
+    continue_current_game = False
 elif user_score > 21:
     print("You went over. You lose 😤")
-    continue_playing = False
+    continue_current_game = False
 elif user_score == 0:
     print("User blackjack. You win 😃")
-    continue_playing = False
+    continue_current_game = False
 
 #Hint 10: If the game has not ended, ask the user if they want to draw another card. If yes, then use the deal_card() function to add another card to the user_cards List. If no, then the game has ended.
-while continue_playing:
+while continue_current_game and continue_dealing:
     another_card = input("Type 'y' to get another card, type 'n' to pass: ")
     if another_card == "y":
         user_cards.append(deal_card())
@@ -101,9 +103,9 @@ while continue_playing:
         print(f"Computer's first card: {computer_cards[0]}")
         if user_score > 21:
             print("You went over. You lose 😤")
-            continue_playing = False
+            continue_current_game = False
     else:
-        continue_playing = False
+        continue_dealing = False
 
 #Hint 11: The score will need to be rechecked with every new card drawn and the checks in Hint 9 need to be repeated until the game ends.
 
