@@ -43,6 +43,8 @@ continue_current_game = True
 continue_dealing = True
 
 def deal_card():
+    """Returns a random card from the deck"""
+    # With the previous line I see the description of the function when I use it
     return random.choice(cards)
 #print(deal_card())
 
