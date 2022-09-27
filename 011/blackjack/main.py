@@ -70,8 +70,10 @@ def calculate_score(input_cards):
     # Hint 8: Inside calculate_score() check for an 11 (ace). If the score is already over 21, remove the 11 and replace it with a 1. You might need to look up append() and remove().
     elif sum(input_cards) > 21:
         for i in range(len(input_cards)):
-            if input_cards[i] == 11: #Checking if I have got an Ace. DEBUG: Does it for all the Aces in the hand
+            if input_cards[i] == 11: #Checking if I have got an Ace. DEBUG: Does it for all the Aces in the hand (shorted out in the second if)
                 input_cards[i] = 1
+                if sum(input_cards) == 21:
+                    return 0
         return sum(input_cards)
     else:
         return sum(input_cards)
