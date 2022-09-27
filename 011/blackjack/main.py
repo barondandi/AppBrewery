@@ -62,15 +62,15 @@ for i in range(2):
 #Hint 6: Create a function called calculate_score() that takes a List of cards as input
 #and returns the score.
 #Look up the sum() function to help you do this.
-#Hint 7: Inside calculate_score() check for a blackjack (a hand with only 2 cards: ace + 10) and return 0 instead of the actual score. 0 will represent a blackjack in our game.
-#Hint 8: Inside calculate_score() check for an 11 (ace). If the score is already over 21, remove the 11 and replace it with a 1. You might need to look up append() and remove().
 
 def calculate_score(input_cards):
+    # Hint 7: Inside calculate_score() check for a blackjack (a hand with only 2 cards: ace + 10) and return 0 instead of the actual score. 0 will represent a blackjack in our game.
     if len(input_cards) == 2 and sum(input_cards) == 21:
-        return 0
+        return 0 #A Blackjack is returned as a 0
+    # Hint 8: Inside calculate_score() check for an 11 (ace). If the score is already over 21, remove the 11 and replace it with a 1. You might need to look up append() and remove().
     elif sum(input_cards) > 21:
         for i in range(len(input_cards)):
-            if input_cards[i] == 11:
+            if input_cards[i] == 11: #Checking if I have got an Ace. DEBUG: Does it for all the Aces in the hand
                 input_cards[i] = 1
         return sum(input_cards)
     else:
