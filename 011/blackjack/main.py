@@ -90,11 +90,11 @@ print(f"Computer's first card: {computer_cards[0]}")
 if computer_score == 0:
     print("Computer blackjack. You lose 😤")
     continue_current_game = False
-elif user_score > 21:
-    print("You went over. You lose 😤")
-    continue_current_game = False
 elif user_score == 0:
     print("User blackjack. You win 😃")
+    continue_current_game = False
+elif user_score > 21:
+    print("You went over. You lose 😤")
     continue_current_game = False
 
 #Hint 10: If the game has not ended, ask the user if they want to draw another card. If yes, then use the deal_card() function to add another card to the user_cards List. If no, then the game has ended.
