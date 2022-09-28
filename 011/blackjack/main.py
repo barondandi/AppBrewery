@@ -75,7 +75,7 @@ def calculate_score(input_cards):
             if input_cards[i] == 11: #Checking if I have got an Ace. DEBUG: Does it for all the Aces in the hand (shorted out in the second if)
                 input_cards[i] = 1
                 if sum(input_cards) == 21:
-                    return sum(input_cards)
+                    return 21
         return sum(input_cards)
     else:
         return sum(input_cards)
