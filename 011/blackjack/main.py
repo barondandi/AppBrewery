@@ -67,6 +67,7 @@ for i in range(2):
 #Look up the sum() function to help you do this.
 
 def calculate_score(input_cards):
+    """Takes a list of cards and return the score calculated from the card"""
     # Hint 7: Inside calculate_score() check for a blackjack (a hand with only 2 cards: ace + 10) and return 0 instead of the actual score. 0 will represent a blackjack in our game.
     if len(input_cards) == 2 and sum(input_cards) == 21:
         return 0 #A Blackjack is returned as a 0
@@ -85,7 +86,7 @@ def calculate_score(input_cards):
 user_score = calculate_score(user_cards)
 computer_score = calculate_score(computer_cards)
 print(f"Your cards: {user_cards}, current score: {user_score}")
-print(f"Computer cards: {computer_cards}, computer score: {computer_score}")
+#print(f"Computer cards: {computer_cards}, computer score: {computer_score}")
 print(f"Computer's first card: {computer_cards[0]}")
 
 if computer_score == 0:
@@ -122,6 +123,11 @@ while continue_current_game and computer_dealing:
             print(f"Your cards: {user_cards}, current score: {user_score}")
             print(f"Computer's cards: {computer_cards}, computer score: {computer_score}")
             print("Computer went over. You win 😃")
+            continue_current_game = False
+        elif computer_score == 0:
+            print(f"Your cards: {user_cards}, current score: {user_score}")
+            print(f"Computer's cards: {computer_cards}, computer score: {computer_score}")
+            print("Computer blackjack. You lose 😤")
             continue_current_game = False
     else:
         computer_dealing = False
