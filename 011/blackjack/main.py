@@ -120,13 +120,13 @@ while continue_current_game and computer_dealing:
         computer_cards.append(deal_card())
         computer_score = calculate_score(computer_cards)
         if computer_score > 21:
-            print(f"Your cards: {user_cards}, current score: {user_score}")
-            print(f"Computer's cards: {computer_cards}, computer score: {computer_score}")
+            print(f"Your final hand: {user_cards}, final score: {user_score}")
+            print(f"Computer's final hand: {computer_cards}, computer final score: {computer_score}")
             print("Computer went over. You win 😃")
             continue_current_game = False
         elif computer_score == 0:
-            print(f"Your cards: {user_cards}, current score: {user_score}")
-            print(f"Computer's cards: {computer_cards}, computer score: {computer_score}")
+            print(f"Your final hand: {user_cards}, final score: {user_score}")
+            print(f"Computer's final hand: {computer_cards}, computer final score: {computer_score}")
             print("Computer blackjack. You lose 😤")
             continue_current_game = False
     else:
@@ -148,8 +148,8 @@ def compare(input_user_score, input_computer_score):
         return "You lose 😤"
 
 if continue_current_game:
-    print(f"Your cards: {user_cards}, current score: {user_score}")
-    print(f"Computer's cards: {computer_cards}, computer score: {computer_score}")
+    print(f"Your final hand: {user_cards}, final score: {user_score}")
+    print(f"Computer's final hand: {computer_cards}, computer final score: {computer_score}")
     print(compare(user_score, computer_score))
     continue_current_game = False
 
