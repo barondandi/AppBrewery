@@ -133,6 +133,24 @@ while continue_current_game and computer_dealing:
         computer_dealing = False
 
 #Hint 13: Create a function called compare() and pass in the user_score and computer_score. If the computer and user both have the same score, then it's a draw. If the computer has a blackjack (0), then the user loses. If the user has a blackjack (0), then the user wins. If the user_score is over 21, then the user loses. If the computer_score is over 21, then the computer loses. If none of the above, then the player with the highest score wins.
+def compare(input_user_score, input_computer_score):
+    """Compares user_score and computer_score. If the computer and user both have the same score, then it's a draw. If the computer has a blackjack (0), then the user loses. If the user has a blackjack (0), then the user wins. If the user_score is over 21, then the user loses. If the computer_score is over 21, then the computer loses. If none of the above, then the player with the highest score wins."""
+    print(f"Your cards: {user_cards}, current score: {user_score}")
+    print(f"Computer's cards: {computer_cards}, computer score: {computer_score}")
+    #If the computer and user both have the same score, then it's a draw
+    if input_user_score == input_computer_score:
+        print("It's a draw")
+    #If the user has a blackjack (0), then the user wins. If the user_score is over 21, then the user loses. If the computer_score is over 21, then the computer loses. If none of the above, then the player with the highest score wins."""
+    elif input_user_score == 0:
+        print("User blackjack. You win 😃")
+    #If none of the above, then the player with the highest score wins."""
+    elif input_user_score > computer_score:
+        print("You win 😃")
+    else:
+        print("You lose 😤")
+    continue_current_game = False
+
+compare(user_score, computer_score)
 
 #Hint 14: Ask the user if they want to restart the game. If they answer yes, clear the console and start a new game of blackjack and show the logo from art.py.
 
