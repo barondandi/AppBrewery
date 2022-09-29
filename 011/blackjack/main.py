@@ -41,6 +41,7 @@ cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 continue_playing = True
 continue_current_game = True
 continue_dealing = True
+computer_dealing = True
 
 def deal_card():
     """Returns a random card from the deck"""
@@ -113,6 +114,17 @@ while continue_current_game and continue_dealing:
         continue_dealing = False
 
 #Hint 12: Once the user is done, it's time to let the computer play. The computer should keep drawing cards as long as it has a score less than 17.
+while continue_current_game and computer_dealing:
+    if computer_score < 17:
+        computer_cards.append(deal_card())
+        computer_score = calculate_score(computer_cards)
+        if computer_score > 21:
+            print(f"Your cards: {user_cards}, current score: {user_score}")
+            print(f"Computer's cards: {computer_cards}, computer score: {computer_score}")
+            print("Computer went over. You win 😃")
+            continue_current_game = False
+    else:
+        computer_dealing = False
 
 #Hint 13: Create a function called compare() and pass in the user_score and computer_score. If the computer and user both have the same score, then it's a draw. If the computer has a blackjack (0), then the user loses. If the user has a blackjack (0), then the user wins. If the user_score is over 21, then the user loses. If the computer_score is over 21, then the computer loses. If none of the above, then the player with the highest score wins.
 
