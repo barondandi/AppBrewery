@@ -20,10 +20,24 @@
 #Global Scope
 player_health = 10
 
-def game():
-    def drink_potion():
-        potion_strenght = 2
-        print(player_health)
-    drink_potion()
+#def game():
+#    def drink_potion():
+#        potion_strenght = 2
+#        print(player_health)
+#    drink_potion()
+#print(player_health)
 
-print(player_health)
+#game_level = 3
+#enemies = ["Skeleton", "Zombie", "Alien"]
+#if game_level < 5:
+#    new_enemy = enemies[0]
+#print(new_enemy)
+
+# Modifying global variables
+enemies = 1
+def increase_enemies():
+   global enemies
+   enemies += 1
+   print(f"enemies inside function: {enemies}")
+increase_enemies()
+print(f"enemies outside function: {enemies}")
