@@ -68,6 +68,7 @@ def make_guess():
             print(f"Did not understand your choice. I need an integer between {lower_number} and {higher_number}.")
 
 def check_guess(i_guess, i_answer):
+    '''Check guess versus answer and print a message accordingly. If win or out of turns sets continue_playing to false'''
     global continue_playing
     if i_guess == i_answer:
         print(f"You got it! The answer was {answer}.")
