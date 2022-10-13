@@ -56,7 +56,7 @@ while choose_difficulty:
 
 while continue_playing and (turns > 0):
     #Input guess and making sure it's an integer in range
-    make_guess = true
+    make_guess = True
     while make_guess:
         guess = int(input("Make a guess: "))
         if (make_guess <= higher_number) and (make_guess >= lower_number):
@@ -67,9 +67,17 @@ while continue_playing and (turns > 0):
     turns -= 1
     #Check the answer and act accordingly
     if guess == answer:
-        print("You win!")
+        print("That is the random number. You win!")
         continue_playing = False
     elif guess > answer:
-        print(f"Too high.\nGuess again.\nYou have {turns} attempts remaining to guess the number.")
+        print("Too high.")
+        if turns > 0:
+            print(f"Guess again.\nYou have {turns} attempts remaining to guess the number.")
+        else:
+            print("Apologies, no more turns left")
     elif guess < answer:
-        print(f"Too low.\nGuess again.\nYou have {turns} attempts remaining to guess the number.")
+        print("Too low")
+        if turns > 0:
+            print(f"Guess again.\nYou have {turns} attempts remaining to guess the number.")
+        else:
+            print("Apologies, no more turns left")
