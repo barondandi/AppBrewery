@@ -14,11 +14,11 @@
 import random
 from art import logo
 from replit import clear
-turns_easy = 10
-turns_hard = 5
-lower_number = 1
-higher_number = 100
-continue_playing = True
+TURNS_EASY = 10
+TURNS_HARD = 5
+LOWER_NUMBER = 1
+HIGHER_NUMBER = 100
+CONTINUE_PLAYING = True
 #I get the error when clearing the screen "TERM environment variable not set."
 #SOLUTION: https://stackoverflow.com/questions/52895902/term-environemt-varaible-not-set-error-python
 import os
@@ -32,7 +32,7 @@ def initialize_screen():
     clear()
     print(logo)
     print("Welcome to the Number Guessing Game!")
-    print(f"I'm thinking of a number between {lower_number} and {higher_number}.")
+    print(f"I'm thinking of a number between {LOWER_NUMBER} and {HIGHER_NUMBER}.")
 
 def random_number(l_number, h_number):
     """Returns a random number within the specified range"""
@@ -46,13 +46,13 @@ def choose_difficulty():
     while continue_choosing_difficulty:
         difficulty = (input("Choose a difficulty. Type 'easy' or 'hard': ")).lower()
         if difficulty == "easy":
-            print(f"You have {turns_easy} attempts remaining to guess the number.")
+            print(f"You have {TURNS_EASY} attempts remaining to guess the number.")
             continue_choosing_difficulty = False
-            return turns_easy
+            return TURNS_EASY
         elif difficulty == "hard":
-            print(f"You have {turns_hard} attempts remaining to guess the number.")
+            print(f"You have {TURNS_HARD} attempts remaining to guess the number.")
             continue_choosing_difficulty = False
-            return turns_hard
+            return TURNS_HARD
         else:
             print("Did not understand your choice. I need to ask again")
 
@@ -61,40 +61,40 @@ def make_guess():
     continue_making_guess = True
     while continue_making_guess:
         chosen_number = int(input("Make a guess: "))
-        if (chosen_number <= higher_number) and (chosen_number >= lower_number):
+        if (chosen_number <= HIGHER_NUMBER) and (chosen_number >= LOWER_NUMBER):
             continue_making_guess = False
             return chosen_number
         else:
-            print(f"Did not understand your choice. I need an integer between {lower_number} and {higher_number}.")
+            print(f"Did not understand your choice. I need an integer between {LOWER_NUMBER} and {HIGHER_NUMBER}.")
 
 def check_guess(i_guess, i_answer):
-    '''Check guess versus answer and print a message accordingly. If win or out of turns sets continue_playing to false'''
-    global continue_playing
+    '''Check guess versus answer and print a message accordingly. If win or out of turns sets CONTINUE_PLAYING to False'''
+    global CONTINUE_PLAYING
     if i_guess == i_answer:
         print(f"You got it! The answer was {answer}.")
-        continue_playing = False
+        CONTINUE_PLAYING = False
     elif i_guess > i_answer:
         print("Too high.")
         if turns > 0:
             print(f"Guess again.\nYou have {turns} attempts remaining to guess the number.")
         else:
             print("You've run out of guesses, you lose.")
-            continue_playing = False
+            CONTINUE_PLAYING = False
     elif i_guess < i_answer:
         print("Too low")
         if turns > 0:
             print(f"Guess again.\nYou have {turns} attempts remaining to guess the number.")
         else:
             print("You've run out of guesses, you lose.")
-            continue_playing = False
+            CONTINUE_PLAYING = False
 
 
 #main
 initialize_screen()
-answer = random_number(lower_number, higher_number)
+answer = random_number(LOWER_NUMBER, HIGHER_NUMBER)
 print(f"Pssst, the correct answer is {answer}")
 turns = choose_difficulty()
-while continue_playing:
+while CONTINUE_PLAYING:
     #Input guess
     guess = make_guess()
     #Decrease the number of turns
@@ -102,3 +102,58 @@ while continue_playing:
     #Check the answer and act accordingly
     check_guess(guess, answer)
 
+'''SOLUTION
+from random import randint
+from art import logo
+
+EASY_LEVEL_TURNS = 10
+HARD_LEVEL_TURNS = 5
+
+#Function to check user's guess against actual answer.
+def check_answer(guess, answer, turns):
+  """checks answer against guess. Returns the number of turns remaining."""
+  if guess > answer:
+    print("Too high.")
+    return turns - 1
+  elif guess < answer:
+    print("Too low.")
+    return turns - 1
+  else:
+    print(f"You got it! The answer was {answer}.")
+  
+#Make function to set difficulty.
+def set_difficulty():
+  level = input("Choose a difficulty. Type 'easy' or 'hard': ")
+  if level == "easy":
+    return EASY_LEVEL_TURNS
+  else:
+    return HARD_LEVEL_TURNS
+  
+def game():
+  print(logo)
+  #Choosing a random number between 1 and 100.
+  print("Welcome to the Number Guessing Game!")
+  print("I'm thinking of a number between 1 and 100.")
+  answer = randint(1, 100)
+  print(f"Pssst, the correct answer is {answer}") 
+  
+  turns = set_difficulty()
+  #Repeat the guessing functionality if they get it wrong.
+  guess = 0
+  while guess != answer:
+    print(f"You have {turns} attempts remaining to guess the number.")
+    
+    #Let the user guess a number.
+    guess = int(input("Make a guess: "))
+    
+    #Track the number of turns and reduce by 1 if they get it wrong.
+    turns = check_answer(guess, answer, turns)
+    if turns == 0:
+      print("You've run out of guesses, you lose.")
+      return
+    elif guess != answer:
+      print("Guess again.")
+  
+  
+game()
+'''
