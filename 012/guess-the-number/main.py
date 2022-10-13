@@ -74,10 +74,10 @@ while continue_playing and (turns > 0):
         if turns > 0:
             print(f"Guess again.\nYou have {turns} attempts remaining to guess the number.")
         else:
-            print("Apologies, no more turns left")
+            print("You've run out of guesses, you lose.")
     elif guess < answer:
         print("Too low")
         if turns > 0:
             print(f"Guess again.\nYou have {turns} attempts remaining to guess the number.")
         else:
-            print("Apologies, no more turns left")
+            print("You've run out of guesses, you lose.")
