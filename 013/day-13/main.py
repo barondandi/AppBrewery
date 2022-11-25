@@ -8,7 +8,6 @@ def my_function():
       print("You got it")
 my_function()
 #Description: Message is not printed. Is "i" ever reaching 20? Remember that range does not hit the upper limit.
-'''
 
 # Reproduce the Bug
 from random import randint
@@ -20,13 +19,15 @@ dice_imgs = ["❶", "❷", "❸", "❹", "❺", "❻"]
 #print(dice_imgs[dice_num])
 dice_num = randint(0, 5)
 print(dice_imgs[dice_num])
+'''
 
-# # Play Computer
-# year = int(input("What's your year of birth?"))
-# if year > 1980 and year < 1994:
-#   print("You are a millenial.")
-# elif year > 1994:
-#   print("You are a Gen Z.")
+# Play Computer
+year = int(input("What's your year of birth?"))
+#if year > 1980 and year < 1994:
+if year > 1980 and year <= 1994:
+  print("You are a millenial.")
+elif year > 1994:
+  print("You are a Gen Z.")
 
 # # Fix the Errors
 # age = input("How old are you?")
