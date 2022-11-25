@@ -19,7 +19,6 @@ dice_imgs = ["❶", "❷", "❸", "❹", "❺", "❻"]
 #print(dice_imgs[dice_num])
 dice_num = randint(0, 5)
 print(dice_imgs[dice_num])
-'''
 
 # Play Computer
 year = int(input("What's your year of birth?"))
@@ -28,11 +27,14 @@ if year > 1980 and year <= 1994:
   print("You are a millenial.")
 elif year > 1994:
   print("You are a Gen Z.")
+'''
 
-# # Fix the Errors
-# age = input("How old are you?")
-# if age > 18:
-# print("You can drive at age {age}.")
+# Fix the Errors
+#age = input("How old are you?")
+age = int(input("How old are you?"))
+if age > 18:
+#  print("You can drive at age {age}.")
+  print(f"You can drive at age {age}.")
 
 # #Print is Your Friend
 # pages = 0
