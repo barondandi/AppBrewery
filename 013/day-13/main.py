@@ -1,5 +1,5 @@
 ############DEBUGGING#####################
-
+'''
 # Describe Problem
 def my_function():
   #for i in range(1, 20):
@@ -8,12 +8,18 @@ def my_function():
       print("You got it")
 my_function()
 #Description: Message is not printed. Is "i" ever reaching 20? Remember that range does not hit the upper limit.
+'''
 
-# # Reproduce the Bug
-# from random import randint
-# dice_imgs = ["❶", "❷", "❸", "❹", "❺", "❻"]
-# dice_num = randint(1, 6)
-# print(dice_imgs[dice_num])
+# Reproduce the Bug
+from random import randint
+dice_imgs = ["❶", "❷", "❸", "❹", "❺", "❻"]
+#dice_num = randint(1, 6)
+#print(dice_num)
+#print(dice_imgs[dice_num])
+#dice_num = randint(6, 6)
+#print(dice_imgs[dice_num])
+dice_num = randint(0, 5)
+print(dice_imgs[dice_num])
 
 # # Play Computer
 # year = int(input("What's your year of birth?"))
