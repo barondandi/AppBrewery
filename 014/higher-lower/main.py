@@ -87,7 +87,8 @@ def check_guess(i_guess, i_answer):
     else:
         print(f"Sorry, that's wrong. Final score: {TURNS - 1}")
         CONTINUE_PLAYING = False
-
+        #Make sure the rest of the while loop does not execute
+        exit(0)
 
 #main
 
