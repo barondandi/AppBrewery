@@ -5,23 +5,30 @@
 # A frustratingly addictive game of higher or lower using Google searches.
 # The data is based on global monthly searches in 2017.
 
-# Number Guessing Game Objectives:
+# The Higher Lower Game:
 
-# Include an ASCII art logo.
-# Allow the player to submit a guess for a number between 1 and 100.
-# Check user's guess against actual answer. Print "Too high." or "Too low." depending on the user's answer.
-# If they got the answer correct, show the actual answer to the player.
-# Track the number of turns remaining.
-# If they run out of turns, provide feedback to the player.
-# Include two different difficulty levels (e.g., 10 guesses in easy mode, only 5 guesses in hard mode).
+# Include an ASCII art logos.
+# 1st time: Randomize 2 entries from the data list. Make sure that they do not overlap.
+# 2nd time an followings: replace the 1st entry by the previous 2nd. Randomize 1 entry from the data list. Make sure that it does not overlap.
+# Print the 2 choices including the art logos:
+# art.logo +
+# Compare A: {name}, a {description}, from {country}.
+# art.vs
+# Against B: {name}, a {description}, from {country}.
+# Who has more followers? Type 'A' or 'B':
+# Ask the user "Who has more followers? Type 'A' or 'B': "
+# Check user's guess against actual answer.
+# If the user is right print "You're right! Current score: x.". Ask again replacing the A choice by the previous B, and generating a new random B choice.
+# If the user is wrong print "Sorry, that's wrong. Final score: x-1" and exit the program
+# Track the number of successful turns.
+
 
 #Variables
 import random
 from art import logo, vs
 from game_data import data
 from replit import clear
-TURNS_EASY = 10
-TURNS_HARD = 5
+TURNS = 1
 LOWER_NUMBER = 1
 HIGHER_NUMBER = len(data)
 # print(HIGHER_NUMBER)
@@ -32,16 +39,15 @@ import os
 os.environ.get('TERM', '')
 
 #Functions
-def initialize_screen():
+def initialize_screen(a_data, b_data):
     """Clears the screen and types the logo and limits"""
     # Initialize screen
     # Include an ASCII art logo.
     clear()
     print(logo)
-    print(f"Compare A:")
-#    print(f"I'm thinking of a number between {LOWER_NUMBER} and {HIGHER_NUMBER}.")
+    print(f"Compare A: {a_data['name']}, a {a_data['description']}, from {a_data['country']}.")
     print(vs)
-    print(f"Against B:")
+    print(f"Against B: {b_data['name']}, a {b_data['description']}, from {b_data['country']}.")
 
 def random_number(l_number, h_number):
     """Returns a random number within the specified range"""
@@ -86,15 +92,21 @@ def check_guess(i_guess, i_answer):
 #main
 # Start selecting 2 random numbers
 choice_a = random_number(LOWER_NUMBER, HIGHER_NUMBER)
-print(f"Choice A is {choice_a}")
+# Now setting the value to 0, 1, 49, 50, 51 to check behaviour
+#choice_a = 1
+#print(f"Choice A is {choice_a}")
 choice_b = random_number(LOWER_NUMBER, HIGHER_NUMBER)
-print(f"Choice b is {choice_b}")
+#print(f"Choice b is {choice_b}")
 # Make sure that the second choice is different to the first one and if not change it
 while choice_b == choice_a:
     choice_b = random_number(LOWER_NUMBER, HIGHER_NUMBER)
-    print(f"The new choice b is {choice_b}")
+#   print(f"The new choice b is {choice_b}")
 
-initialize_screen()
+data_a = data[choice_a - 1]
+print(data_a)
+print(data_a['name'])
+data_b = data[choice_b - 1]
+initialize_screen(data_a, data_b)
 
 while CONTINUE_PLAYING:
     #Input guess
