@@ -78,23 +78,15 @@ def check_answer(a_count, b_count):
 def check_guess(i_guess, i_answer):
     '''Check guess versus answer and print a message accordingly. A wrong answer sets CONTINUE_PLAYING to False'''
     global CONTINUE_PLAYING
+    global turns
+    # If the user is right print "You're right! Current score: x.". Ask again replacing the A choice by the previous B, and generating a new random B choice.
     if i_guess == i_answer:
-        print(f"You got it! The answer was {answer}.")
+        print(f"You're right! Current score: {turns}.")
+        CONTINUE_PLAYING = True
+    # If the user is wrong print "Sorry, that's wrong. Final score: x-1" and exit the program
+    else:
+        print(f"Sorry, that's wrong. Final score: {turns - 1}")
         CONTINUE_PLAYING = False
-    elif i_guess > i_answer:
-        print("Too high.")
-        if turns > 0:
-            print(f"Guess again.\nYou have {turns} attempts remaining to guess the number.")
-        else:
-            print("You've run out of guesses, you lose.")
-            CONTINUE_PLAYING = False
-    elif i_guess < i_answer:
-        print("Too low")
-        if turns > 0:
-            print(f"Guess again.\nYou have {turns} attempts remaining to guess the number.")
-        else:
-            print("You've run out of guesses, you lose.")
-            CONTINUE_PLAYING = False
 
 
 #main
@@ -124,7 +116,10 @@ while CONTINUE_PLAYING:
     #Calculate the right answer
     answer = check_answer(data_a['follower_count'], data_b['follower_count'])
     print(f"The right answer is {answer}.")
-    #Increase the number of turns
-    turns += 1
-    #Check the answer and act accordingly
+    # Check user's guess against actual answer.
+    clear()
+    print(logo)
     check_guess(guess, answer)
+    # Track the number of successful turns.
+    turns += 1
+
