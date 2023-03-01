@@ -132,6 +132,8 @@ while CONTINUE_PLAYING:
         choice_b = random_number(LOWER_NUMBER, HIGHER_NUMBER)
     data_a = data_b
     data_b = data[choice_b - 1]
-    initialize_screen(data_a, data_b)
+    print(f"Compare A: {data_a['name']}, a {data_a['description']}, from {data_a['country']}.")
+    print(vs)
+    print(f"Against B: {data_b['name']}, a {data_b['description']}, from {data_b['country']}.")
 
 
