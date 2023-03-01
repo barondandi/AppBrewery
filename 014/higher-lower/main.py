@@ -78,14 +78,14 @@ def check_answer(a_count, b_count):
 def check_guess(i_guess, i_answer):
     '''Check guess versus answer and print a message accordingly. A wrong answer sets CONTINUE_PLAYING to False'''
     global CONTINUE_PLAYING
-    global turns
+    global TURNS
     # If the user is right print "You're right! Current score: x.". Ask again replacing the A choice by the previous B, and generating a new random B choice.
     if i_guess == i_answer:
-        print(f"You're right! Current score: {turns}.")
+        print(f"You're right! Current score: {TURNS}.")
         CONTINUE_PLAYING = True
     # If the user is wrong print "Sorry, that's wrong. Final score: x-1" and exit the program
     else:
-        print(f"Sorry, that's wrong. Final score: {turns - 1}")
+        print(f"Sorry, that's wrong. Final score: {TURNS - 1}")
         CONTINUE_PLAYING = False
 
 
@@ -121,5 +121,16 @@ while CONTINUE_PLAYING:
     print(logo)
     check_guess(guess, answer)
     # Track the number of successful turns.
-    turns += 1
+    TURNS += 1
+    # 2nd time an followings: replace the 1st entry by the previous 2nd. Randomize 1 entry from the data list. Make sure that it does not overlap.
+    # Start selecting 2 random numbers
+    choice_a = choice_b
+    choice_b = random_number(LOWER_NUMBER, HIGHER_NUMBER)
+    # Make sure that the second choice is different to the first one and if not change it
+    while choice_b == choice_a:
+        choice_b = random_number(LOWER_NUMBER, HIGHER_NUMBER)
+    data_a = data_b
+    data_b = data[choice_b - 1]
+    initialize_screen(data_a, data_b)
+
 
