@@ -116,7 +116,7 @@ while CONTINUE_PLAYING:
     guess = make_guess()
     #Calculate the right answer
     answer = check_answer(data_a['follower_count'], data_b['follower_count'])
-    print(f"The right answer is {answer}.")
+    # print(f"The right answer is {answer}.")
     # Check user's guess against actual answer.
     clear()
     print(logo)
