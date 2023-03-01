@@ -57,15 +57,16 @@ def random_number(l_number, h_number):
 
 
 def make_guess():
-    #Input guess and make sure it's an integer in range. Returns the chosen number
+    #Input guess and make sure it's a'A' or 'B'. Returns the chosen letter
+    # Ask the user "Who has more followers? Type 'A' or 'B': "
     continue_making_guess = True
     while continue_making_guess:
-        chosen_number = int(input("Make a guess: "))
-        if (chosen_number <= HIGHER_NUMBER) and (chosen_number >= LOWER_NUMBER):
+        chosen_letter = str(input("Who has more followers? Type 'A' or 'B': "))
+        if (chosen_letter.upper() == 'A') or (chosen_letter.upper() == 'B'):
             continue_making_guess = False
-            return chosen_number
+            return chosen_letter
         else:
-            print(f"Did not understand your choice. I need an integer between {LOWER_NUMBER} and {HIGHER_NUMBER}.")
+            print("Did not understand your choice. Possible answers are only 'A' or 'B': ")
 
 def check_guess(i_guess, i_answer):
     '''Check guess versus answer and print a message accordingly. If win or out of turns sets CONTINUE_PLAYING to False'''
@@ -90,6 +91,8 @@ def check_guess(i_guess, i_answer):
 
 
 #main
+
+# 1st time: Randomize 2 entries from the data list. Make sure that they do not overlap.
 # Start selecting 2 random numbers
 choice_a = random_number(LOWER_NUMBER, HIGHER_NUMBER)
 # Now setting the value to 0, 1, 49, 50, 51 to check behaviour
@@ -103,15 +106,15 @@ while choice_b == choice_a:
 #   print(f"The new choice b is {choice_b}")
 
 data_a = data[choice_a - 1]
-print(data_a)
-print(data_a['name'])
+#print(data_a)
+#print(data_a['name'])
 data_b = data[choice_b - 1]
 initialize_screen(data_a, data_b)
 
 while CONTINUE_PLAYING:
     #Input guess
     guess = make_guess()
-    #Decrease the number of turns
-    turns -= 1
+    #Increase the number of turns
+    turns += 1
     #Check the answer and act accordingly
     check_guess(guess, answer)
