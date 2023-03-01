@@ -67,9 +67,16 @@ def make_guess():
             return chosen_letter
         else:
             print("Did not understand your choice. Possible answers are only 'A' or 'B': ")
+def check_answer(a_count, b_count):
+    #Checks wether the right answer it's a'A' or 'B'. Inputs are the 'follower_count' as integers. Returns the right letter
+    if a_count >= b_count:
+        right_answer = 'A'
+    else:
+        right_answer = 'B'
+    return right_answer
 
 def check_guess(i_guess, i_answer):
-    '''Check guess versus answer and print a message accordingly. If win or out of turns sets CONTINUE_PLAYING to False'''
+    '''Check guess versus answer and print a message accordingly. A wrong answer sets CONTINUE_PLAYING to False'''
     global CONTINUE_PLAYING
     if i_guess == i_answer:
         print(f"You got it! The answer was {answer}.")
@@ -114,6 +121,9 @@ initialize_screen(data_a, data_b)
 while CONTINUE_PLAYING:
     #Input guess
     guess = make_guess()
+    #Calculate the right answer
+    answer = check_answer(data_a['follower_count'], data_b['follower_count'])
+    print(f"The right answer is {answer}.")
     #Increase the number of turns
     turns += 1
     #Check the answer and act accordingly
