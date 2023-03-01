@@ -88,11 +88,11 @@ def check_guess(i_guess, i_answer):
 choice_a = random_number(LOWER_NUMBER, HIGHER_NUMBER)
 print(f"Choice A is {choice_a}")
 choice_b = random_number(LOWER_NUMBER, HIGHER_NUMBER)
-print(f"Choice b is {choice_a}")
+print(f"Choice b is {choice_b}")
 # Make sure that the second choice is different to the first one and if not change it
 while choice_b == choice_a:
     choice_b = random_number(LOWER_NUMBER, HIGHER_NUMBER)
-    print(f"The new hoice b is {choice_a}")
+    print(f"The new choice b is {choice_b}")
 
 initialize_screen()
 
