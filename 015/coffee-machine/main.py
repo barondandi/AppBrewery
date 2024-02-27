@@ -126,8 +126,7 @@ def get_command():
         else:
             print("Did not understand your choice. Possible answers are only " + ' or '.join(products))
 
-def print_report():
-    """Prints a report that shows the current resource values"""
+
 '''
 3. Print report.
 a. When the user enters “report” to the prompt, a report should be generated that shows the current resource values. e.g.
@@ -136,20 +135,21 @@ Milk: 50ml
 Coffee: 76g
 Money: $2.5
 '''
+def print_report():
+    """Prints a report that shows the current resource values"""
 #    print(resources)
     print(f"Water: {resources['water']}ml")
     print(f"Milk: {resources['milk']}ml")
     print(f"Coffee: {resources['coffee']}g")
     print(f"Money: ${money}")
 
-def get_coins():
 '''
 5. Process coins.
 a. If there are sufficient resources to make the drink selected, then the program should prompt the user to insert coins.
 b. Remember that quarters = $0.25, dimes = $0.10, nickles = $0.05, pennies = $0.01
 c. Calculate the monetary value of the coins inserted. E.g. 1 quarter, 2 dimes, 1 nickel, 2 pennies = 0.25 + 0.1 x 2 + 0.05 + 0.01 x 2 = $0.52
 '''
-
+def get_coins():
     print()
 
 #main
@@ -166,6 +166,10 @@ while CONTINUE_SERVICE:
         print_report()
     elif command in products:
         inserted_money = get_coins()
+    elif command == "off":
+        #2. Turn off the Coffee Machine by entering “off” to the prompt.
+        #a. For maintainers of the coffee machine, they can use “off” as the secret word to turn off the machine. Your code should end execution when this happens.
+        CONTINUE_SERVICE = False
 
 '''SOLUTION
 '''
