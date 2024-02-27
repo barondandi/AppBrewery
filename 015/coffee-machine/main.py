@@ -51,7 +51,6 @@ b. Once all resources have been deducted, tell the user “Here is your latte. E
 '''
 
 #Variables
-
 from art import logo
 from replit import clear
 
@@ -89,6 +88,8 @@ resources = {
     "coffee": 100,
 }
 
+money = 0
+
 coin = {
     "penny": 0.01,
     "nickel": 0.05,
@@ -96,21 +97,75 @@ coin = {
     "quarter": 0.25,
 }
 
+CONTINUE_SERVICE = True
 
 #Functions
 
 def initialize_screen():
-    """Clears the screen and types the logo and main question"""
+    """Clears the screen and types the logo"""
     # Initialize screen
     # Include an ASCII art logo.
     clear()
     print(logo)
-    print("What would you like? (" + '/'.join(products) +"):")
+
+def get_command():
+    #Input guess and make sure it's an option of the list, "report" or "off". Returns the chosen option lowercase
+    # Ask the user "Who has more followers? Type 'A' or 'B': "
+    continue_requesting_command = True
+    while continue_requesting_command:
+        typed_command = str(input("What would you like? (" + '/'.join(products) +"):"))
+        if (typed_command.lower() in products):
+            continue_requesting_command = False
+            return typed_command.lower()
+        elif (typed_command.lower() == "report"):
+                continue_requesting_command = False
+                return typed_command.lower()
+        elif (typed_command.lower() == "off"):
+                continue_requesting_command = False
+                return typed_command.lower()
+        else:
+            print("Did not understand your choice. Possible answers are only " + ' or '.join(products))
+
+def print_report():
+    """Prints a report that shows the current resource values"""
+'''
+3. Print report.
+a. When the user enters “report” to the prompt, a report should be generated that shows the current resource values. e.g.
+Water: 100ml
+Milk: 50ml
+Coffee: 76g
+Money: $2.5
+'''
+#    print(resources)
+    print(f"Water: {resources['water']}ml")
+    print(f"Milk: {resources['milk']}ml")
+    print(f"Coffee: {resources['coffee']}g")
+    print(f"Money: ${money}")
+
+def get_coins():
+'''
+5. Process coins.
+a. If there are sufficient resources to make the drink selected, then the program should prompt the user to insert coins.
+b. Remember that quarters = $0.25, dimes = $0.10, nickles = $0.05, pennies = $0.01
+c. Calculate the monetary value of the coins inserted. E.g. 1 quarter, 2 dimes, 1 nickel, 2 pennies = 0.25 + 0.1 x 2 + 0.05 + 0.01 x 2 = $0.52
+'''
+
+    print()
 
 #main
 
-# 1. Prompt user by asking “What would you like? (espresso/latte/cappuccino):”
+# Initializa screen
 initialize_screen()
+
+# 1. Prompt user by asking “What would you like? (espresso/latte/cappuccino):”
+while CONTINUE_SERVICE:
+    #Input command
+    command = get_command()
+#    print(command)
+    if command == "report":
+        print_report()
+    elif command in products:
+        inserted_money = get_coins()
 
 '''SOLUTION
 '''
