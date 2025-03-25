@@ -9,7 +9,7 @@
 
 # Include an ASCII art logos.
 # 1st time: Randomize 2 entries from the data list. Make sure that they do not overlap.
-# 2nd time an followings: replace the 1st entry by the previous 2nd. Randomize 1 entry from the data list. Make sure that it does not overlap.
+# 2nd time and followings: replace the 1st entry by the previous 2nd. Randomize 1 entry from the data list. Make sure that it does not overlap.
 # Print the 2 choices including the art logos:
 # art.logo +
 # Compare A: {name}, a {description}, from {country}.
