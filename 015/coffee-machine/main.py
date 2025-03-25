@@ -208,7 +208,8 @@ c. If the user has inserted too much money, the machine should offer change.E.g.
 def check_transaction(inserted_money, product_cost):
     """Checks that the user has inserted enough money to purchase the drink they selected"""
     if inserted_money >= product_cost:
-        change = inserted_money - product_cost
+        change = round(inserted_money - product_cost, 2)
+        # change = inserted_money - product_cost
         # print(f"Total money {inserted_money:.2f} total cost {product_cost}.")
         print(f"Here is ${change:.2f} dollars in change.")
         return True
@@ -233,7 +234,8 @@ b. Once all resources have been deducted, tell the user “Here is your latte. E
 '''
 def make_coffee(coffee_choice):
     for ingredient in MENU[coffee_choice]['ingredients']:
-        resources[ingredient] = resources[ingredient] - MENU[coffee_choice]['ingredients'][ingredient]
+        resources[ingredient] -latte\
+            = MENU[coffee_choice]['ingredients'][ingredient]
     global money  # Declare that we want to use the global variable
     money += MENU[coffee_choice]['cost']
     print(f"Here is your {coffee_choice} ☕ Enjoy!")
