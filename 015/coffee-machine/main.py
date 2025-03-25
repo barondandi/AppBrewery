@@ -187,9 +187,10 @@ c. Calculate the monetary value of the coins inserted. E.g. 1 quarter, 2 dimes, 
 '''
 def get_coins():
     """Processes the coins inserted by the user and returns the change"""
+    print("Please insert coins.")
     TOTAL_MONEY = 0
     for coins in coin_types:
-        TOTAL_MONEY = TOTAL_MONEY + (int(input("How many " + coins + "s?")))*(coin[coins])
+        TOTAL_MONEY += (int(input("How many " + coins + "s?")))*(coin[coins])
         # print(f"Total money {TOTAL_MONEY:.2f} counting inserted {coins}.")
     return TOTAL_MONEY
 
