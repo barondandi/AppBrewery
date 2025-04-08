@@ -234,8 +234,7 @@ b. Once all resources have been deducted, tell the user “Here is your latte. E
 '''
 def make_coffee(coffee_choice):
     for ingredient in MENU[coffee_choice]['ingredients']:
-        resources[ingredient] -latte\
-            = MENU[coffee_choice]['ingredients'][ingredient]
+        resources[ingredient] -= MENU[coffee_choice]['ingredients'][ingredient]
     global money  # Declare that we want to use the global variable
     money += MENU[coffee_choice]['cost']
     print(f"Here is your {coffee_choice} ☕ Enjoy!")
@@ -262,6 +261,3 @@ while CONTINUE_SERVICE:
         #2. Turn off the Coffee Machine by entering “off” to the prompt.
         #a. For maintainers of the coffee machine, they can use “off” as the secret word to turn off the machine. Your code should end execution when this happens.
         CONTINUE_SERVICE = False
-
-'''SOLUTION
-'''
